@@ -1,9 +1,11 @@
 #!/bin/bash
 
 VOSCMD=/usr/bin/virtuoso-t
-CONFIG=virtuoso.ini
+CONFIG=/var/lib/virtuoso/db/virtuoso.ini
+CONFIG_ONTOWIKI=/var/www/config.ini
+LOG_ONTOWIKI="/var/www/logs/ontowiki.log"
 
-# configure virtuoso
+# configure Virtuoso
 if [ -f ${CONFIG} ]; then
     echo "Reuse existing virtuoso.ini in database directory"
 else
@@ -27,14 +29,28 @@ cleanup () {
 
   exit 0
 }
-
 trap 'cleanup' INT TERM
 
-# change password
+# change Virtuoso password
 echo "Setting virtuoso dba password."
 ${VOSCMD} +configfile ${CONFIG} +foreground +pwdold dba +pwddba ${PWDDBA}
 
-# Start server
+# config OntoWiki config file
+sed -i "s/\(store.virtuoso.password\s*\)= \"dba\"$/\1= \"${PWDDBA}\"/" ${CONFIG_ONTOWIKI}
+
+# Start Virtuoso server
 echo "Starting virtuoso..."
 ${VOSCMD} +configfile ${CONFIG} &
 vospid=$!
+
+# start php5-fpm service
+echo "starting php …"
+service php5-fpm start
+
+# start nginx service
+echo "starting nginx …"
+service nginx start
+
+touch ${LOG_ONTOWIKI}
+chmod a+w ${LOG_ONTOWIKI}
+tail -f ${LOG_ONTOWIKI}
