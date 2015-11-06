@@ -12,7 +12,7 @@ RUN apt-get update
 # install dependencies
 RUN apt-get install -y libldap-2.4-2 libssl1.0.0 unixodbc wget make git nginx-light \
     php5=5.6.7+dfsg-1 php5-fpm=5.6.7+dfsg-1 php5-common=5.6.7+dfsg-1 php5-cli=5.6.7+dfsg-1 \
-    php5-odbc=5.6.7+dfsg-1 php5-curl=5.6.7+dfsg-1
+    php5-odbc=5.6.7+dfsg-1 php5-curl=5.6.7+dfsg-1 nano
 
 # install Virtuoso
 COPY virtuoso-minimal_7.2_all.deb /
@@ -40,12 +40,20 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/ontowiki-nginx.conf /etc/nginx/sites-enabled/
 COPY odbc.ini /etc/
 
+
+#config php
+RUN echo "upload_max_filesize = 100M" >> /etc/php5/fpm/php.ini
+RUN echo "post_max_size = 100M" >> /etc/php5/fpm/php.ini
+RUN echo "request_terminate_timeout = 3600" >> /etc/php5/fpm/php.ini
+
 EXPOSE 1111
 EXPOSE 8890
 EXPOSE 80
 
+VOLUME /import
 VOLUME /var/lib/virtuoso/db
 
 COPY run.sh /bin/
+COPY import.sh /bin/
 
 CMD ["run.sh"]
