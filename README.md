@@ -1,12 +1,6 @@
 Docker container for CubeViz
 ============================
 
-Prerequisite
------
-
-To clone the complete repository please install the [Git Large File Storage](https://git-lfs.github.com) extension.  
-Afterwards, do `git clone https://github.com/Dockerizing/CubeViz.git` as always.
-
 Usage
 -----
 
