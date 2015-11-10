@@ -50,10 +50,8 @@ EXPOSE 1111
 EXPOSE 8890
 EXPOSE 80
 
-VOLUME /import
 VOLUME /var/lib/virtuoso/db
 
 COPY run.sh /bin/
-COPY import.sh /bin/
 
 CMD ["run.sh"]
