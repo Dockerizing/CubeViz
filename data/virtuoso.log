@@ -1,0 +1,41 @@
+
+		Tue Nov 10 2015
+11:17:28 OpenLink Virtuoso Universal Server
+11:17:28 Version 07.20.3213-pthreads for Linux as of May 12 2015
+11:17:28 uses parts of OpenSSL, PCRE, Html Tidy
+11:17:28 Starting for DBA password change.
+11:17:28 SQL Optimizer enabled (max 1000 layouts)
+11:17:28 Compiler unit is timed at 0.000113 msec
+11:17:30 Checkpoint started
+11:17:30 Roll forward started
+11:17:30 Roll forward complete
+11:17:30 Checkpoint started
+11:17:30 Checkpoint finished, log reused
+11:17:30 Checkpoint started
+11:17:30 Checkpoint finished, log reused
+11:17:31 Checkpoint started
+11:17:31 Checkpoint finished, log reused
+11:17:31 Checkpoint started
+11:17:31 Checkpoint finished, log reused
+11:17:31 Checkpoint started
+11:17:31 Checkpoint finished, log reused
+11:17:31 PL LOG: Can't get list of vad packages in /usr/share/virtuoso/vad/
+11:17:31 The DBA password is changed.
+11:17:31 Checkpoint started
+11:17:31 Checkpoint finished, log reused
+11:17:31 Server exiting
+
+		Tue Nov 10 2015
+11:17:31 OpenLink Virtuoso Universal Server
+11:17:31 Version 07.20.3213-pthreads for Linux as of May 12 2015
+11:17:31 uses parts of OpenSSL, PCRE, Html Tidy
+11:17:31 Database version 3126
+11:17:31 SQL Optimizer enabled (max 1000 layouts)
+11:17:32 Compiler unit is timed at 0.000126 msec
+11:17:33 Roll forward started
+11:17:33 Roll forward complete
+11:17:33 PL LOG: Can't get list of vad packages in /usr/share/virtuoso/vad/
+11:17:33 Checkpoint started
+11:17:33 Checkpoint finished, log reused
+11:17:33 HTTP/WebDAV server online at 8890
+11:17:33 Server online at 1111 (pid 20)
