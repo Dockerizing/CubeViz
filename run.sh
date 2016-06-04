@@ -40,7 +40,7 @@ sed -i "s/\(store.virtuoso.password\s*\)= \"dba\"$/\1= \"${PWDDBA}\"/" ${CONFIG_
 
 # Start Virtuoso server
 echo "Starting virtuoso..."
-${VOSCMD} +configfile ${CONFIG} &
+${VOSCMD} +configfile ${CONFIG} +foreground &
 vospid=$!
 
 # start php5-fpm service
