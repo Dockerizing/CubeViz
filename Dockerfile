@@ -21,8 +21,8 @@ RUN dpkg  -i virtuoso-minimal_7.2_all.deb \
           virtuoso-opensource-7-bin_7.2_amd64.deb \
           libvirtodbc0_7.2_amd64.deb
 
-# the latest ontowiki doenst work, ne need to go back to a8eb80ecc43f47b0bfc2584ae465e724b28c6bd2 (before using composer)
-RUN cd /var/www/ && git checkout a8eb80ecc43f47b0bfc2584ae465e724b28c6bd2
+# the latest ontowiki doesnt work, we checkout latest working commit edb16f533e96dcd262d1d9e06de09d68fd3ed3a2
+RUN cd /var/www/ && git checkout edb16f533e96dcd262d1d9e06de09d68fd3ed3a2
 RUN cd /var/www/ && make deploy
 
 # configure the OntoWiki site for Nginx, increase upload time
